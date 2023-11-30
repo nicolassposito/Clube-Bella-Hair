@@ -1,19 +1,19 @@
 import React from 'react';
 import logo from '../img/logo.png';
 import logo2 from '../img/logo2.png';
-import { FiUser, FiBell, FiChevronUp, FiMenu } from "react-icons/fi";
+import { FiUser, FiBell, FiChevronUp, FiChevronDown } from "react-icons/fi";
 import perfil from '../img/perfil.jpg';
 
 function Header() {
     return (
-        <header id='header' className='md:px-6 px-1 text-md font-medium text-neutral-500 py-2 bg-white sticky top-0 z-10 w-full z-20' style={{boxShadow: 'rgba(230, 109, 153, 0.4) 0px -3px 15px 1px'}}>
+        <header id='header' className='md:px-6 sm:px-4 pr-1 text-md font-medium text-neutral-500 py-2 bg-white sticky top-0 z-10 w-full z-20' style={{boxShadow: 'rgba(230, 109, 153, 0.4) 0px -3px 15px 1px'}}>
           <div id='menuWall' style={{display: 'none', opacity: '0', transition: '0.3s'}}></div>
           <div className='flex justify-between items-center'>
             <ul className='flex items-center'>
               <li><a href='/'><img src={logo2} width={340} style={{minWidth: '300px'}} className='md:block hidden'></img></a></li>
               <li><a href='/'><img src={logo} width={160} style={{minWidth: '140px'}} className='md:hidden'></img></a></li>
-              <ul id='abrirmenu' className='md:hidden ml-2' style={{transition: '0.2s'}}><FiMenu size={26} className='text-neutral-600'/>
-              <div id='dropdown' style={{opacity: '0',}} className='fixed bg-white drop-shadow-lg py-2 px-4 flex flex-col justify-around h-28 rounded'>
+              <ul id='abrirmenu' className='md:hidden ml-1 md:ml-2 relative flex items-center text-sm' style={{transition: '0.2s'}}><span>Menu</span><FiChevronDown size={18} />
+              <div id='dropdown' style={{opacity: '0', left: '-30%', top: '130%'}} className='absolute bg-white drop-shadow-lg py-2 px-4 flex flex-col justify-around h-28 rounded'>
                 <li><a href='#home'>Home</a></li>
                 <li><a href='#planos'>Planos</a></li>
                 <li><a href='#contato'>Contato</a></li>
@@ -26,11 +26,11 @@ function Header() {
               </div>
             </ul>
               <div className='flex items-center'>
-                <a href='#' className='flex items-center px-1 py-1 rounded-md font-medium text-neutral-50 outline-double outline-3 outline-offset-1' style={{color: 'var(--primary)',}}><FiUser size={20} style={{strokeWidth: '2px'}}/><span className='mx-1'>Login</span></a>
+                <a href='#' className='text-sm flex items-center px-1 py-1 rounded-md font-medium text-neutral-50 outline-double outline-3 outline-offset-1' style={{color: 'var(--primary)',}}><FiUser size={18} style={{strokeWidth: '2px'}}/><span className='mx-1'>Login</span></a>
                 <div>
-                  <div id='abrirAvisos' className='p-2 rounded-full bg-neutral-200 cursor-pointer relative ml-4'><FiBell size={20}/></div>
-                  <div id='fecharAvisos' style={{display: 'none'}} className='p-2 rounded-full bg-neutral-200 cursor-pointer relative ml-4'><FiBell size={20}/></div>
-                  <div id='avisos' className='absolute eu shadow-lg z-10 rounded-sm cursor-default bg-white' style={{minWidth: '260px', right: '3%', top: '72px', border: 'solid 1px #e66d9963', display: 'none', opacity: '0', transition: '0.3s'}}>
+                  <div id='abrirAvisos' className='p-2 rounded-full bg-neutral-200 cursor-pointer relative ml-3 relative'><div className='text-white absolute w-4 h-4 flex items-center justify-center rounded-full' style={{backgroundColor: 'var(--primary)', right: '-2px', bottom: '0', fontSize: '11px'}}>1</div>
+                  <FiBell size={18}/>
+                  <div id='avisos' className='absolute eu shadow-lg z-10 rounded-sm cursor-default bg-white' style={{minWidth: '260px', right: '3%', top: '130%', border: 'solid 1px #e66d9963', display: 'none', opacity: '0', transition: '0.3s'}}>
                     <FiChevronUp size={26} className='absolute' style={{top: '-17px', fontSize: '30px', right: '0%', color: '#e66d9963', strokeWidth: '1px'}}/>
                     {/* Lista de notificações */}
                     <div className='notificacao-texto text-sm bg-white px-8 py-4 mb-2'>
@@ -43,6 +43,7 @@ function Header() {
                       </div>
                       <p className='mt-2 font-semibold'>Você ganhou 20%OFF!</p>
                     </div>
+                  </div>
                   </div>
                 </div>
               </div>

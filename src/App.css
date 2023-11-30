@@ -87,6 +87,18 @@ header ul li a:hover::after{
   animation-delay: 1s;
 }
 
+#abrirAvisos:hover #avisos{
+  display: block !important;
+  opacity: 1 !important;
+  transition: 1s;
+}
+
+#abrirAvisos:not(:hover) #avisos{
+  animation: dropdownclose;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
 @keyframes dropdownclose{
   0%{
     opacity: 100%;
