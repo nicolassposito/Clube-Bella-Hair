@@ -8,18 +8,13 @@ import { useEffect } from "react";
 
 function Header() {
   useEffect(() => {
-    $( "#abrirAvisos" ).on( "click", function() {
-      $( "#avisos" ).fadeIn( "fast", function() {
-        $( "#avisosWall" ).fadeIn( "fast" );
-      });
-    } );
-
-    $( "#avisosWall" ).on( "click", function() {
-      $( "#avisos" ).fadeOut( "fast", function() {
-        $( "#avisosWall" ).fadeOut( "fast" );
-      });
-    } );
-
+    $( "#abrirAvisos" ).hover(
+      function() {
+        $( "#avisos" ).fadeIn( "fast" );
+      }, function() {
+        $( "#avisos" ).fadeOut( "fast" );
+      }
+    );
     
     $( "#abrirmenu" ).hover(
       function() {
