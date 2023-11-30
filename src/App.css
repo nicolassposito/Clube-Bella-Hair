@@ -75,18 +75,42 @@ header ul li a:hover::after{
   background-color: #c7c7c7;
 }
 
+#avisosWall{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 31;
+}
+
+#avisos{
+  z-index: 32;
+}
+
+
+#abrirmenu #dropdown{
+  left: -30%;
+  top: 130%;
+  display: none;
+}
+
+#dropdown li a:hover{
+  color: var(--primary);
+}
+
+#dropdown li{
+  padding: 4px;
+}
+
+/*
 #abrirmenu:hover #dropdown{
-  opacity: 1 !important;
+  opacity: 100% !important;
   display: flex !important;
-  transition: 0.4s;
-}
+  top: 140%;
+} */
 
-#abrirmenu:not(:hover) #dropdown{
-  animation: dropdownclose;
-  animation-fill-mode: forwards;
-  animation-delay: 1s;
-}
-
+/*
 #abrirAvisos:hover #avisos{
   display: block !important;
   opacity: 1 !important;
@@ -97,19 +121,7 @@ header ul li a:hover::after{
   animation: dropdownclose;
   animation-fill-mode: forwards;
   animation-delay: 1s;
-}
-
-@keyframes dropdownclose{
-  0%{
-    opacity: 100%;
-  }
-  99%{
-    opacity: 0;
-  }
-  100%{
-    display: none;
-  }
-}
+} */
 
 /* 
 @media (max-width: 1023px){

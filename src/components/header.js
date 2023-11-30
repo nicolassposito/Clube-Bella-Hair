@@ -3,17 +3,44 @@ import logo from '../img/logo.png';
 import logo2 from '../img/logo2.png';
 import { FiUser, FiBell, FiChevronUp, FiChevronDown } from "react-icons/fi";
 import perfil from '../img/perfil.jpg';
+import $ from "jquery"
+import { useEffect } from "react";
 
 function Header() {
+  useEffect(() => {
+    $( "#abrirAvisos" ).on( "click", function() {
+      $( "#avisos" ).fadeIn( "fast", function() {
+        $( "#avisosWall" ).fadeIn( "fast" );
+      });
+    } );
+
+    $( "#avisosWall" ).on( "click", function() {
+      $( "#avisos" ).fadeOut( "fast", function() {
+        $( "#avisosWall" ).fadeOut( "fast" );
+      });
+    } );
+
+    
+    $( "#abrirmenu" ).hover(
+      function() {
+        $( "#dropdown" ).slideDown( "fast" );
+        $( "#dropdown" ).fadeIn( "fast" );
+      }, function() {
+        $( "#dropdown" ).slideUp( "fast" );
+        $( "#dropdown" ).fadeOut( "fast" );
+      }
+    );
+  })
     return (
         <header id='header' className='md:px-6 sm:px-4 pr-1 text-md font-medium text-neutral-500 py-2 bg-white sticky top-0 z-10 w-full z-20' style={{boxShadow: 'rgba(230, 109, 153, 0.4) 0px -3px 15px 1px'}}>
-          <div id='menuWall' style={{display: 'none', opacity: '0', transition: '0.3s'}}></div>
+          <div id='menuWall' style={{display: 'none'}}></div>
+          <div id='avisosWall' style={{display: 'none'}}></div>
           <div className='flex justify-between items-center'>
             <ul className='flex items-center'>
               <li><a href='/'><img src={logo2} width={340} style={{minWidth: '300px'}} className='md:block hidden'></img></a></li>
               <li><a href='/'><img src={logo} width={160} style={{minWidth: '140px'}} className='md:hidden'></img></a></li>
               <ul id='abrirmenu' className='md:hidden ml-1 md:ml-2 relative flex items-center text-sm' style={{transition: '0.2s'}}><span>Menu</span><FiChevronDown size={18} />
-              <div id='dropdown' style={{opacity: '0', left: '-30%', top: '130%'}} className='absolute bg-white drop-shadow-lg py-2 px-4 flex flex-col justify-around h-28 rounded'>
+              <div id='dropdown' style={{display: 'none'}} className='absolute bg-white drop-shadow-lg py-2 px-4 flex flex-col justify-around rounded'>
                 <li><a href='#home'>Home</a></li>
                 <li><a href='#planos'>Planos</a></li>
                 <li><a href='#contato'>Contato</a></li>
@@ -30,7 +57,7 @@ function Header() {
                 <div>
                   <div id='abrirAvisos' className='p-2 rounded-full bg-neutral-200 cursor-pointer relative ml-3 relative'><div className='text-white absolute w-4 h-4 flex items-center justify-center rounded-full' style={{backgroundColor: 'var(--primary)', right: '-2px', bottom: '0', fontSize: '11px'}}>1</div>
                   <FiBell size={18}/>
-                  <div id='avisos' className='absolute eu shadow-lg z-10 rounded-sm cursor-default bg-white' style={{minWidth: '260px', right: '3%', top: '130%', border: 'solid 1px #e66d9963', display: 'none', opacity: '0', transition: '0.3s'}}>
+                  <div id='avisos' className='absolute eu shadow-lg z-10 rounded-sm cursor-default bg-white' style={{minWidth: '260px', right: '3%', top: '130%', border: 'solid 1px #e66d9963', display: 'none'}}>
                     <FiChevronUp size={26} className='absolute' style={{top: '-17px', fontSize: '30px', right: '0%', color: '#e66d9963', strokeWidth: '1px'}}/>
                     {/* Lista de notificações */}
                     <div className='notificacao-texto text-sm bg-white px-8 py-4 mb-2'>
