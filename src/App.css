@@ -75,6 +75,31 @@ header ul li a:hover::after{
   background-color: #c7c7c7;
 }
 
+#abrirmenu:hover #dropdown{
+  opacity: 1 !important;
+  display: flex !important;
+  transition: 0.4s;
+}
+
+#abrirmenu:not(:hover) #dropdown{
+  animation: dropdownclose;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
+@keyframes dropdownclose{
+  0%{
+    opacity: 100%;
+  }
+  99%{
+    opacity: 0;
+  }
+  100%{
+    display: none;
+  }
+}
+
+/* 
 @media (max-width: 1023px){
   #menulinks{
     position: fixed;
@@ -103,4 +128,4 @@ header ul li a:hover::after{
     top: 0;
     z-index: 11;
   }
-}
+} */
