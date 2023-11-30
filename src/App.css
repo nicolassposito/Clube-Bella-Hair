@@ -7,6 +7,8 @@
 :root{
   --primary: #e66d99;
   --primary-dark: #b73a67;
+  --secondary: #ff8892;
+  --secondary-dark: #db6670;
 }
 
 body{
@@ -101,6 +103,14 @@ header ul li a:hover::after{
 
 #dropdown li{
   padding: 4px;
+}
+
+.vantagens:hover{
+  background-color: var(--secondary-dark);
+}
+
+.vantagens:hover span{
+  color: #fff;
 }
 
 /*
