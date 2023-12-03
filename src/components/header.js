@@ -34,7 +34,7 @@ function Header() {
             <ul className='flex items-center'>
               <li><a href='/'><img src={logo2} width={340} style={{minWidth: '300px'}} className='md:block hidden'></img></a></li>
               <li><a href='/'><img src={logo} width={160} style={{minWidth: '140px'}} className='md:hidden'></img></a></li>
-              <ul id='abrirmenu' className='md:hidden ml-1 md:ml-2 relative flex items-center text-sm' style={{transition: '0.2s'}}><span>Menu</span><FiChevronDown size={18} />
+              <ul id='abrirmenu' className='md:hidden ml-0.5 md:ml-2 relative flex items-center text-sm mr-1' style={{transition: '0.2s'}}><span>Menu</span><FiChevronDown className='hidden sm:block' size={18} /><FiChevronDown className='sm:hidden' size={14} />
               <div id='dropdown' style={{display: 'none'}} className='absolute bg-white drop-shadow-lg py-2 px-4 flex flex-col justify-around rounded'>
                 <li><a href='#home'>Home</a></li>
                 <li><a href='#planos'>Planos</a></li>
@@ -50,7 +50,7 @@ function Header() {
               <div className='flex items-center'>
                 <a href='#' className='text-sm flex items-center px-1 py-1 rounded-md font-medium text-neutral-50 outline-double outline-3 outline-offset-1' style={{color: 'var(--primary)',}}><FiUser size={18} style={{strokeWidth: '2px'}}/><span className='mx-1'>Login</span></a>
                 <div>
-                  <div id='abrirAvisos' className='p-2 rounded-full bg-neutral-200 cursor-pointer relative ml-3 relative'><div className='text-white absolute w-4 h-4 flex items-center justify-center rounded-full' style={{backgroundColor: 'var(--primary)', right: '-2px', bottom: '0', fontSize: '11px'}}>1</div>
+                  <div id='abrirAvisos' className='p-2 rounded-full bg-neutral-200 cursor-pointer relative ml-2 relative'><div className='text-white absolute w-4 h-4 flex items-center justify-center rounded-full' style={{backgroundColor: 'var(--primary)', right: '-2px', bottom: '0', fontSize: '11px'}}>1</div>
                   <FiBell size={18}/>
                   <div id='avisos' className='absolute eu shadow-lg z-10 rounded-sm cursor-default bg-white' style={{minWidth: '260px', right: '3%', top: '130%', border: 'solid 1px #e66d9963', display: 'none'}}>
                     <FiChevronUp size={26} className='absolute' style={{top: '-17px', fontSize: '30px', right: '0%', color: '#e66d9963', strokeWidth: '1px'}}/>

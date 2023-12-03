@@ -4,7 +4,8 @@ import Hero from './components/hero';
 import Oferta from './components/oferta';
 import Oferta2 from './components/oferta2';
 import Oferta3 from './components/oferta3';
-import porqueAssinar from './components/porqueAssinar';
+import Redirect from './components/site redirect';
+import Pricing from './components/pricing';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Oferta />
       <Oferta2 />
       <Oferta3 />
-      <porqueAssinar />
+      <Redirect />
+      <Pricing />
     </div>
   );
 }

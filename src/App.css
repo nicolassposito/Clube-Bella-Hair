@@ -15,6 +15,16 @@ body{
   font-family: 'Poppins', sans-serif;
 }
 
+.button{
+  background-color: var(--secondary-dark);
+  color: #fff;
+  transition: ease 0.25s;
+}
+
+.button:hover{
+  background-color: var(--primary-dark);
+}
+
 .hero{
   -webkit-user-select:none;
   -khtml-user-select:none;
