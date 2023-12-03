@@ -15,8 +15,8 @@ function App() {
       <Oferta />
       <Oferta2 />
       <Oferta3 />
-      <Redirect />
       <Pricing />
+      <Redirect />
     </div>
   );
 }

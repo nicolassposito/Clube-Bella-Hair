@@ -119,10 +119,6 @@ header ul li a:hover::after{
   background-color: var(--secondary-dark);
 }
 
-.vantagens:hover span{
-  color: #fff;
-}
-
 /*
 #abrirmenu:hover #dropdown{
   opacity: 100% !important;
