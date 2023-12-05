@@ -7,7 +7,7 @@ import { useEffect } from "react";
 function ComoFunciona() {
 useEffect(() => {
     $( ".faq" ).on('click', function() {
-        $(this).children(".faqHidden").slideToggle('1000');
+        $(this).children(".faqHidden").slideToggle('200');
         $(this).children(".faqIcon").toggleClass('active');
       }
     );
