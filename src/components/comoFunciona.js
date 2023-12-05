@@ -17,9 +17,9 @@ useEffect(() => {
       })
   })
   return(
-    <div className='p-6 bg-neutral-800'>
+    <div className='p-6 border-t border-neutral-400'>
         <div className='container mx-auto'>
-            <h1 className="text-center text-neutral-50 text-3xl font-semibold mb-4">Como funciona ?</h1>
+            <h1 className="text-center text-neutral-800 text-3xl font-semibold mb-4">Como funciona ?</h1>
             <div className='faq text-neutral-50 drop-shadow-xl bg-rose-400 rounded text-lg overflow-hidden relative my-3'>
                 <h3 className='faqItem text-xl cursor-pointer p-4'>1. Escolha seu plano</h3>
                 <p className='faqHidden px-4 pb-2'>Quando clicar no botão de assinar, irá para a página de <a href='#' className='text-rose-700 font-semibold'>registro</a>, onde criará sua conta e dará continuidade à contratação do plano.</p>
