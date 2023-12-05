@@ -9,6 +9,7 @@ import Pricing from './components/pricing';
 import ComoFunciona from './components/comoFunciona';
 import Garantia from './components/garantia';
 import Contato from './components/contato';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <ComoFunciona />
       <Garantia />
       <Contato />
+      <Footer />
     </div>
   );
 }
