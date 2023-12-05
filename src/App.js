@@ -8,6 +8,7 @@ import Redirect from './components/site redirect';
 import Pricing from './components/pricing';
 import ComoFunciona from './components/comoFunciona';
 import Garantia from './components/garantia';
+import Contato from './components/contato';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Redirect />
       <ComoFunciona />
       <Garantia />
+      <Contato />
     </div>
   );
 }

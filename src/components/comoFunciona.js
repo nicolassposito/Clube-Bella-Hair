@@ -17,8 +17,8 @@ useEffect(() => {
       })
   })
   return(
-    <div className='p-6 border-t border-neutral-400'>
-        <div className='container mx-auto'>
+    <div className='p-6'>
+        <div className='container mx-auto border-t py-8 border-neutral-300'>
             <h1 className="text-center text-neutral-800 text-3xl font-semibold mb-4">Como funciona ?</h1>
             <div className='faq text-neutral-50 drop-shadow-xl bg-rose-400 rounded text-lg overflow-hidden relative my-3'>
                 <h3 className='faqItem text-xl cursor-pointer p-4'>1. Escolha seu plano</h3>
