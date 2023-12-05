@@ -6,6 +6,7 @@ import Oferta2 from './components/oferta2';
 import Oferta3 from './components/oferta3';
 import Redirect from './components/site redirect';
 import Pricing from './components/pricing';
+import ComoFunciona from './components/comoFunciona';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Oferta3 />
       <Pricing />
       <Redirect />
+      <ComoFunciona />
     </div>
   );
 }
