@@ -6,7 +6,7 @@ import { HiMiniBellAlert } from "react-icons/hi2";
 
 function Pricing() {
   return(
-    <div className='text-center py-4'>
+    <div id='planos' className='text-center py-4'>
         <div className='container mx-auto'>
             <div className='py-5'>
                 <h1 className='text-2xl font-medium text-neutral-800'>Pronta para uma vida mais prática?</h1>
