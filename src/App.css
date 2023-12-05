@@ -134,6 +134,20 @@ header ul li a:hover::after{
   color: #fff;
 }
 
+.faq.active p{
+  display: block !important;
+  height: 45px !important;
+}
+
+.accord-content{
+  background-color:#323232;
+  color: #fff;
+  font-size:12px;
+  font-family:arial;
+  display:none;
+  padding:10px;
+}
+
 /*
 #abrirmenu:hover #dropdown{
   opacity: 100% !important;
