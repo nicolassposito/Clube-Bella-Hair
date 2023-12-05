@@ -149,6 +149,15 @@ header ul li a:hover::after{
   padding:10px;
 }
 
+.faqIcon{
+  transform: rotate(90deg);
+  transition: 0.4s;
+}
+
+.faqIcon.active{
+  transform: rotate(0);
+}
+
 /*
 #abrirmenu:hover #dropdown{
   opacity: 100% !important;
