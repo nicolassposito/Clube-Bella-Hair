@@ -8,8 +8,10 @@ function Pricing() {
   return(
     <div className='text-center py-4'>
         <div className='container mx-auto'>
-            <h1 className='text-2xl font-medium text-neutral-800'>Pronta para uma vida mais prática?</h1>
-            <h2 className='text-base mt-1 mb-3'>Escolha seu plano</h2>
+            <div className='py-5'>
+                <h1 className='text-2xl font-medium text-neutral-800'>Pronta para uma vida mais prática?</h1>
+                <h2 className='text-base mt-1 mb-3'>Escolha seu plano</h2>
+            </div>
             <div className='flex flex-wrap justify-center'>
                 <div className='produto relative text-left border p-4 rounded-lg shadow-md hover:shadow-xl transition m-1 md:w-fit w-full bg-neutral-50'>
                     <p className='uppercase mb-4 text-base'>Plano básico</p>
@@ -22,6 +24,7 @@ function Pricing() {
                         <li className='flex items-center text-base'><CgClose className='mr-1.5 text-rose-500 drop-shadow' size={20}/>Cupom exclusivo no site</li>
                         <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Qualidade do produto</li>
                     </ul>
+                    <button className='button flex mx-auto py-1.5 px-5 rounded-full mt-3'>Assinar</button>
                 </div>
                 <div className='produto relative text-left border p-4 rounded-lg shadow-md hover:shadow-xl transition m-1 md:w-fit w-full bg-neutral-800 text-neutral-100'>
                     <p className='uppercase mb-4 text-base flex justify-between items-center'>Plano VIP <div className='uppercase text-xs text-rose-400 flex items-center'><HiMiniBellAlert className='mr-1' size={16}/>Melhor custo benefício</div></p>
@@ -34,6 +37,7 @@ function Pricing() {
                         <li className='flex items-center text-base'><CgClose className='mr-1.5 text-rose-500 drop-shadow' size={20}/>Cupom exclusivo no site</li>
                         <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Qualidade do produto</li>
                     </ul>
+                    <button className='button-transparent flex mx-auto py-1.5 px-5 rounded-full mt-3 hover:text-neutral-800'>Assinar</button>
                 </div>
                 <div className='produto relative text-left border p-4 rounded-lg shadow-md hover:shadow-xl transition m-1 md:w-fit w-full bg-neutral-50'>
                     <p className='uppercase mb-4 text-base'>Plano BELLA</p>
@@ -46,6 +50,7 @@ function Pricing() {
                         <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Cupom exclusivo no site</li>
                         <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Qualidade do produto</li>
                     </ul>
+                    <button className='button flex mx-auto py-1.5 px-5 rounded-full mt-3'>Assinar</button>
                 </div>
             </div>
         </div>

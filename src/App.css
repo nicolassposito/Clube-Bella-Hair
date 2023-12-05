@@ -25,6 +25,17 @@ body{
   background-color: var(--primary-dark);
 }
 
+.button-transparent{
+  background-color: transparent;
+  color: var(--primary);
+  transition: ease 0.25s;
+  border: 2px solid var(--primary);
+}
+
+.button-transparent:hover{
+  background-color: var(--primary);
+}
+
 .hero{
   -webkit-user-select:none;
   -khtml-user-select:none;
