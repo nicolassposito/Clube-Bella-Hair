@@ -6,36 +6,23 @@ import { useEffect } from "react";
 
 function ComoFunciona() {
 useEffect(() => {
-   $('.accord1 li p').click(function(){
-    $(this).next(".accord-content").slideToggle();
-});
+    $( ".faqItem" ).on('click', function() {
+        $(this).next("p").slideToggle('slow');
+      }
+    );
+    $(document).ready(function() {
+        $(".faq").children("p").hide();
+      })
   })
   return(
     <div className='p-6 bg-neutral-800'>
         <div className='container mx-auto'>
-        <div className="accord1">
-    <ul>
-      <li>
-        <p>Accord 1</p>
-        <div className="accord-content">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-        </div>
-      </li>
-      <li>
-        <p>Accord 2</p>
-        <div className="accord-content">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-        </div>
-      </li>
-      <li>
-        <p>Accord 3</p>
-        <div className="accord-content">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-        </div>
-      </li>
-      
-    </ul>
-  </div>
+            <h1 className="text-center text-neutral-50 text-3xl font-semibold mb-4">Como funciona ?</h1>
+            <div className='faq text-neutral-50 drop-shadow-xl bg-rose-400 rounded text-xl overflow-hidden p-4 relative cursor-pointer'>
+                <h3 className='faqItem text-2xl'>1. Escolha seu plano</h3>
+                <p className='faqHidden p-2'>Quando clicar no botão de assinar, irá para a página de <a href='#' className='text-pink-500 font-semibold'>registro</a>, onde criará sua conta e dará continuidade à contratação do plano.</p>
+                <button className='faqIcon absolute right-3 top-1/2 text-rose-200' style={{transform: 'translate(0, -50%)'}}><IoIosArrowDown size={26}/></button>
+            </div>
         </div>
     </div>
   );
