@@ -11,6 +11,10 @@
   --secondary-dark: #db6670;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
