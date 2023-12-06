@@ -49,7 +49,9 @@ function Header() {
               </div>
             </ul>
               <div className='flex items-center'>
-                <a href='#' className='text-sm flex items-center px-1 py-1 rounded-md font-medium text-neutral-50 outline-double outline-3 outline-offset-1' style={{color: 'var(--primary)',}}><FiUser size={18} style={{strokeWidth: '2px'}}/><span className='mx-1'>Login</span></a>
+                <Link to="/login">
+                  <a href='#' className='text-sm flex items-center px-1 py-1 rounded-md font-medium text-neutral-50 outline-double outline-3 outline-offset-1' style={{color: 'var(--primary)',}}><FiUser size={18} style={{strokeWidth: '2px'}}/><span className='mx-1'>Login</span></a>
+                </Link>
                 <div>
                   <div id='abrirAvisos' className='p-2 rounded-full bg-neutral-200 cursor-pointer relative ml-2 relative'><div className='text-white absolute w-4 h-4 flex items-center justify-center rounded-full' style={{backgroundColor: 'var(--primary)', right: '-2px', bottom: '0', fontSize: '11px'}}>1</div>
                   <FiBell size={18}/>
