@@ -5,6 +5,7 @@ import { FiUser, FiBell, FiChevronUp, FiChevronDown } from "react-icons/fi";
 import perfil from '../img/perfil.jpg';
 import $ from "jquery"
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 function Header() {
   useEffect(() => {
