@@ -5,7 +5,7 @@ import { MdMailOutline } from "react-icons/md";
 function Contato() {
   return(
     <div id='contato'>
-        <div className='container mx-auto py-6 border-t border-neutral-300'>
+        <div className='container mx-auto py-6 border-t border-neutral-300 px-3'>
             <h1 className='text-2xl text-neutral-800'>Contato</h1>
             <p className='text-neutral-700'>Tem alguma dúvida? Entre em contato conosco pelo:</p>
             <ul>
