@@ -26,6 +26,13 @@ function Header() {
         $( "#dropdown" ).fadeOut( "fast" );
       }
     );
+
+    console.log(document.location.pathname);
+    
+    if((document.location.pathname) == '/' || ''){
+    } else {
+      $('.onlyHome').remove();
+    }
   })
     return (
         <header id='header' className='md:px-6 sm:px-4 pr-1 text-md font-medium text-neutral-500 py-2 bg-white sticky top-0 z-10 w-full z-20' style={{boxShadow: 'rgba(230, 109, 153, 0.4) 0px -3px 15px 1px'}}>
@@ -37,12 +44,14 @@ function Header() {
               <li><a href='/'><img src={logo} width={160} style={{minWidth: '140px'}} className='md:hidden'></img></a></li>
               <ul id='abrirmenu' className='md:hidden ml-0.5 md:ml-2 relative flex items-center text-sm mr-1' style={{transition: '0.2s'}}><span>Menu</span><FiChevronDown className='hidden sm:block' size={18} /><FiChevronDown className='sm:hidden' size={14} />
               <div id='dropdown' style={{display: 'none'}} className='absolute bg-white drop-shadow-lg py-2 px-4 flex flex-col justify-around rounded'>
-                <li><a href='#home'>Home</a></li>
-                <li><a href='#planos'>Planos</a></li>
-                <li><a href='#contato'>Contato</a></li>
+                <div className='onlyHome' style={{display: 'none'}}>
+                  <li><a href='#home'>Home</a></li>
+                  <li><a href='#planos'>Planos</a></li>
+                  <li><a href='#contato'>Contato</a></li>
+                </div>
               </div>
               </ul>
-              <div id='menulinks' className='hidden md:flex lg:shadow-none shadow-2xl shadow-pink-300 z-30'>
+              <div id='menulinks' className='onlyHome hidden md:flex lg:shadow-none shadow-2xl shadow-pink-300 z-30'>
                 <li className='links'><a href='#home' className='relative active'>Home</a></li>
                 <li className='links'><a href='#planos' className='relative'>Planos</a></li>
                 <li className='links'><a href='#contato' className='relative'>Contato</a></li>

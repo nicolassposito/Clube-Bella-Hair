@@ -7,6 +7,7 @@ import {
 } from "firebase/auth";
 import "../App.css";
 import { auth } from "../firebase-config";
+import Header from "../components/header";
 
 
 function Login() {
@@ -52,21 +53,19 @@ function Login() {
   };
   return (
     <div className="App" id='login'>
-      <div>
-        <h3> Register User </h3>
+        <Header />
+        <div className="bg-neutral-200 p-4">
+        <h1 className="">Criar sua conta</h1>
         <input
           placeholder="Email..."
           onChange={(event) => {
             setRegisterEmail(event.target.value);
-          }}
-        />
+          }}/>
         <input
           placeholder="Password..."
           onChange={(event) => {
             setRegisterPassword(event.target.value);
-          }}
-        />
-
+          }}/>
         <button onClick={register}> Create User</button>
       </div>
 
