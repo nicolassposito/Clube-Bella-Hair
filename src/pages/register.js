@@ -8,14 +8,11 @@ import {
 import "../App.css";
 import { auth } from "../firebase-config";
 import Header from "../components/header";
-import logo from '../img/logoB.png'
-import Background from "../components/backgroundCustom/background";
 
-function Login() {
+
+function Register() {
     const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
 
   const [user, setUser] = useState({});
 
@@ -23,12 +20,12 @@ function Login() {
     setUser(currentUser);
   });
 
-  const login = async () => {
+  const register = async () => {
     try {
-      const user = await signInWithEmailAndPassword(
+      const user = await createUserWithEmailAndPassword(
         auth,
-        loginEmail,
-        loginPassword
+        registerEmail,
+        registerPassword
       );
       console.log(user);
     } catch (error) {
@@ -36,23 +33,29 @@ function Login() {
     }
   };
 
-  const logout = async () => {
-    await signOut(auth);
-  };
+//   const logout = async () => {
+//     await signOut(auth);
+//   };
   return (
     <div className="App" id='login'>
-      <style>
-        {`
-          body {
-            background-color: ;
-          }
-        `}
-      </style>
-      <backgroundCustom />
         <Header />
-        <div className="drop-shadow p-4 flex flex-col max-w-2xl mx-auto">
-        <img src={logo} width={100}></img>
-        <h3 className="text-center text-2xl">Iniciar sessão</h3>
+        <div className="bg-neutral-100 p-4 flex flex-col max-w-2xl mx-auto">
+        <h1 className="">Criar conta</h1>
+        <input
+          placeholder="Email..."
+          onChange={(event) => {
+            setRegisterEmail(event.target.value);
+          }}/>
+        <input
+          placeholder="Password..."
+          onChange={(event) => {
+            setRegisterPassword(event.target.value);
+          }}/>
+        <button onClick={register}> Create User</button>
+      </div>
+
+      <div>
+        <h3> Login </h3>
         <input
           placeholder="Email..."
           onChange={(event) => {
@@ -76,4 +79,4 @@ function Login() {
     </div>
   );
 }
-export default Login;
+export default Register;
