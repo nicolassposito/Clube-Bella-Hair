@@ -54,7 +54,7 @@ function Login() {
   return (
     <div className="App" id='login'>
         <Header />
-        <div className="bg-neutral-200 p-4">
+        <div className="bg-neutral-200 p-4 flex flex-col">
         <h1 className="">Criar sua conta</h1>
         <input
           placeholder="Email..."

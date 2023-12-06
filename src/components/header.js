@@ -40,7 +40,7 @@ function Header() {
           <div id='avisosWall' style={{display: 'none'}}></div>
           <div className='flex justify-between items-center'>
             <ul className='flex items-center'>
-              <li><a href='/'><img src={logo2} width={340} style={{minWidth: '300px'}} className='md:block hidden'></img></a></li>
+              <Link to="/"><li><a href='/'><img src={logo2} width={340} style={{minWidth: '300px'}} className='md:block hidden'></img></a></li></Link>
               <li><a href='/'><img src={logo} width={160} style={{minWidth: '140px'}} className='md:hidden'></img></a></li>
               <ul id='abrirmenu' className='md:hidden ml-0.5 md:ml-2 relative flex items-center text-sm mr-1' style={{transition: '0.2s'}}><span>Menu</span><FiChevronDown className='hidden sm:block' size={18} /><FiChevronDown className='sm:hidden' size={14} />
               <div id='dropdown' style={{display: 'none'}} className='absolute bg-white drop-shadow-lg py-2 px-4 flex flex-col justify-around rounded'>
