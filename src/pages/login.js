@@ -9,11 +9,9 @@ import "../App.css";
 import { auth } from "../firebase-config";
 import Header from "../components/header";
 import logo from '../img/logoB.png'
-import Background from "../components/backgroundCustom/background";
+import Background from "../components/background";
 
 function Login() {
-    const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
@@ -40,33 +38,38 @@ function Login() {
     await signOut(auth);
   };
   return (
-    <div className="App" id='login'>
+    <div className="App overflow-x-hidden">
       <style>
         {`
-          body {
-            background-color: ;
+          #login{
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4.3px);
+            -webkit-backdrop-filter: blur(4.3px);
+            border: 1px solid rgba(255, 255, 255, 0.43);
           }
         `}
       </style>
-      <backgroundCustom />
+      <Background />
         <Header />
-        <div className="drop-shadow p-4 flex flex-col max-w-2xl mx-auto">
-        <img src={logo} width={100}></img>
-        <h3 className="text-center text-2xl">Iniciar sessão</h3>
-        <input
+        <div id="login" className="absolute drop-shadow p-10 flex flex-col max-w-2xl top-1/2 left-1/2" style={{transform: 'translate(-50%, -50%)', width: '90%'}}>
+        <img src={logo} width={100} className="mx-auto"></img>
+        <h3 className="text-center text-2xl font-semibold text-white drop-shadow-xl py-2">Iniciar sessão</h3>
+        <input className="p-2 rounded my-1"
           placeholder="Email..."
           onChange={(event) => {
             setLoginEmail(event.target.value);
           }}
         />
-        <input
+        <input className="p-2 rounded my-1"
           placeholder="Password..."
           onChange={(event) => {
             setLoginPassword(event.target.value);
           }}
         />
 
-        <button onClick={login}> Login</button>
+        <button className="button w-28 py-2 rounded-full mt-3 mx-auto" onClick={login}> Login</button>
       </div>
 
       <h4> User Logged In: </h4>
