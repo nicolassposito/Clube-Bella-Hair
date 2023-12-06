@@ -11,7 +11,7 @@ import logo from '../img/logoB.png'
 import Background from "../components/background";
 import { Link } from "react-router-dom";
 import $ from "jquery"
-
+import { useEffect } from "react";
 
 function Register() {
     const [registerEmail, setRegisterEmail] = useState("");
@@ -25,8 +25,9 @@ function Register() {
   
     const register = async () => {
       if(document.getElementById("senha").innerHTML != document.getElementById("senha2")){
-        document.getElementById("senha-erro").style.opacity = '100%';
-        $('senha-erro').slideDown('fast');
+        useEffect(() => {
+            $('#senha-erro').slideDown('fast');
+          })        
       } else{
         try {
             const user = await createUserWithEmailAndPassword(
@@ -82,7 +83,7 @@ function Register() {
         />
 
         <button className="button w-28 py-2 rounded-full mt-3 mx-auto" onClick={register}> Pronto</button>
-        <p className="text-neutral-700 mt-5">Já tem uma conta? <Link to='/register' className="text-rose-600">Iniciar sessão</Link></p>
+        <p className="text-neutral-700 mt-5">Já tem uma conta? <Link to='/login' className="text-rose-600">Iniciar sessão</Link></p>
       </div>
 
       <h4> User Logged In: </h4>
