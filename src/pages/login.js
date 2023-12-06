@@ -10,6 +10,7 @@ import { auth } from "../firebase-config";
 import Header from "../components/header";
 import logo from '../img/logoB.png'
 import Background from "../components/background";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [loginEmail, setLoginEmail] = useState("");
@@ -62,14 +63,15 @@ function Login() {
             setLoginEmail(event.target.value);
           }}
         />
-        <input className="p-2 rounded my-1"
-          placeholder="Password..."
+        <input type="password" className="p-2 rounded my-1"
+          placeholder="Senha..."
           onChange={(event) => {
             setLoginPassword(event.target.value);
           }}
         />
 
         <button className="button w-28 py-2 rounded-full mt-3 mx-auto" onClick={login}> Login</button>
+        <p className="text-neutral-700 mt-5">Ainda não tem uma conta? <Link to='/register' className="text-rose-600">Criar conta</Link></p>
       </div>
 
       <h4> User Logged In: </h4>
