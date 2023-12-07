@@ -25,10 +25,9 @@ function Register() {
   
     const register = async () => {
       if(document.getElementById("senha").innerHTML != document.getElementById("senha2")){
-        useEffect(() => {
             $('#senha-erro').slideDown('fast');
-          })
       } else{
+        $('#senha-erro').slideUp('fast');
         try {
             const user = await createUserWithEmailAndPassword(
               auth,
