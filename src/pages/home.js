@@ -10,18 +10,8 @@ import ComoFunciona from '../components/comoFunciona';
 import Garantia from '../components/garantia';
 import Contato from '../components/contato';
 import Footer from '../components/footer';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function Home() {
-    const auth = getAuth();
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    alert("bem vindo " + user.email)
-    const uid = user.uid;
-  } else {
-    
-  }
-});
     return (
       <div className="App" id='home'>
         <Header />

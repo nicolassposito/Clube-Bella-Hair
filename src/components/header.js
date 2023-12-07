@@ -27,8 +27,6 @@ function Header() {
       }
     );
 
-    console.log(document.location.pathname);
-    
     if((document.location.pathname) == '/' || ''){
     } else {
       $('.onlyHome').remove();

@@ -65,6 +65,7 @@ function Register() {
         <img src={logo} width={100} className="mx-auto"></img>
         <h3 className="text-center text-2xl font-semibold text-white drop-shadow-xl py-2">Criar conta</h3>
         <p id="senha-erro" className="text-center text-sm mt-0.5 text-red-700 hidden">As senhas não são iguais!</p>
+        <form onSubmit={register} className="flex flex-col">
         <input className="p-2 rounded my-1"
           placeholder="Nome..."
           onChange={(event) => {
@@ -87,12 +88,13 @@ function Register() {
           }}
         />
 
-        <button className="button w-28 py-2 rounded-full mt-3 mx-auto" onClick={register}> Pronto</button>
+        <button type="submit" className="button w-28 py-2 rounded-full mt-3 mx-auto" onClick={register}> Pronto</button>
+        </form>
         <p className="text-neutral-700 mt-5">Já tem uma conta? <Link to='/login' className="text-rose-600">Iniciar sessão</Link></p>
       </div>
 
-      Olá, {user.displayName}<br></br>
-      {user?.email}<br></br>
+      <h4> User Logged In: </h4>
+      {user?.email}
 
       <button onClick={logout}> Sign Out </button>
     </div>
