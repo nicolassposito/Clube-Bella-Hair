@@ -27,7 +27,7 @@ function Register() {
       if(document.getElementById("senha").innerHTML != document.getElementById("senha2")){
         useEffect(() => {
             $('#senha-erro').slideDown('fast');
-          })        
+          })
       } else{
         try {
             const user = await createUserWithEmailAndPassword(
