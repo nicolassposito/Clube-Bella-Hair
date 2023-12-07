@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import "../App.css";
 import { auth } from "../firebase-config";
@@ -15,6 +16,7 @@ import $ from "jquery"
 function Register() {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
+    const [registerName, setRegisterName] = useState(""); // New state for the name
   
     const [user, setUser] = useState({});
   
@@ -23,21 +25,20 @@ function Register() {
     });
   
     const register = async () => {
-      if(document.getElementById("senha").innerHTML != document.getElementById("senha2")){
-            $('#senha-erro').slideDown('fast');
-      } else{
-        $('#senha-erro').slideUp('fast');
         try {
-            const user = await createUserWithEmailAndPassword(
+            const userCredential = await createUserWithEmailAndPassword(
               auth,
               registerEmail,
               registerPassword
             );
+            const user = userCredential.user;
+            await updateProfile(auth.currentUser, {
+              displayName: registerName, // Update the name in Firebase
+            });
             console.log(user);
           } catch (error) {
             console.log(error.message);
           }
-      }
     };
   
     const logout = async () => {
@@ -65,6 +66,12 @@ function Register() {
         <h3 className="text-center text-2xl font-semibold text-white drop-shadow-xl py-2">Criar conta</h3>
         <p id="senha-erro" className="text-center text-sm mt-0.5 text-red-700 hidden">As senhas não são iguais!</p>
         <input className="p-2 rounded my-1"
+          placeholder="Nome..."
+          onChange={(event) => {
+            setRegisterName(event.target.value); // Update the name state
+          }}
+        />
+        <input className="p-2 rounded my-1"
           placeholder="Email..."
           onChange={(event) => {
             setRegisterEmail(event.target.value);
@@ -84,8 +91,8 @@ function Register() {
         <p className="text-neutral-700 mt-5">Já tem uma conta? <Link to='/login' className="text-rose-600">Iniciar sessão</Link></p>
       </div>
 
-      <h4> User Logged In: </h4>
-      {user?.email}
+      Olá, {user.displayName}<br></br>
+      {user?.email}<br></br>
 
       <button onClick={logout}> Sign Out </button>
     </div>
