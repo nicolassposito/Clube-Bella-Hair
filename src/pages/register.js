@@ -11,7 +11,6 @@ import logo from '../img/logoB.png'
 import Background from "../components/background";
 import { Link } from "react-router-dom";
 import $ from "jquery"
-import { useEffect } from "react";
 
 function Register() {
     const [registerEmail, setRegisterEmail] = useState("");

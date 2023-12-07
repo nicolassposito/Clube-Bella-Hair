@@ -39,7 +39,7 @@ function Login() {
     await signOut(auth);
   };
   return (
-    <div className="App overflow-x-hidden">
+    <div className="App overflow-x-hidden" style={{height: '100vh'}}>
       <style>
         {`
           #login{
