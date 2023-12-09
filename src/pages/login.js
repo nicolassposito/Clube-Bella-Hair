@@ -41,12 +41,7 @@ function Login() {
     await signOut(auth);
   };
 
-  const navigate = useNavigate();
-  if (user) {
-    navigate('/panel');
-  } else {
-    navigate('/login');
-  }
+  
   return (
     <div className="App overflow-x-hidden" style={{height: '100vh'}}>
       <style>
