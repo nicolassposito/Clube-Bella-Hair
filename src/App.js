@@ -6,7 +6,7 @@ import Panel from './pages/panel'
 
 function App() {
   return (
-    <div className="App" id='home'>
+    <div className="App" id='app'>
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
