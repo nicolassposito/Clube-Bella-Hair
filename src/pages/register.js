@@ -88,7 +88,7 @@ function Register() {
           }}
         />
 
-        <button type="submit" className="button w-28 py-2 rounded-full mt-3 mx-auto" onClick={register}> Pronto</button>
+        <button type="submit" className="button w-28 py-2 rounded-full mt-3 mx-auto"> Pronto</button>
         </form>
         <p className="text-neutral-700 mt-5">Já tem uma conta? <Link to='/login' className="text-rose-600">Iniciar sessão</Link></p>
       </div>
