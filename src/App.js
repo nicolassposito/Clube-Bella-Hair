@@ -1,8 +1,9 @@
-import { HashRouter, BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/home'
-import Login from './pages/login'
-import Register from './pages/register'
-import Panel from './pages/panel'
+import { HashRouter, BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
+import Login from './pages/login';
+import Register from './pages/register';
+import Panel from './pages/panel';
+import './Global.css';
 
 function App() {
   return (
