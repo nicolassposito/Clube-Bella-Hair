@@ -1,12 +1,12 @@
 .painel-item.active{
-    color: var(--primary);
+    color: var(--pink);
     opacity: 100%;
 }
 
 .painel-item{
     opacity: 80%;
     font-weight: 500;
-    transition: 0.1s;
+    transition: 0.1gis;
 }
 
 .painel-item:hover{
