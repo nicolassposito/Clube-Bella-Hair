@@ -11,18 +11,21 @@ import { auth } from "../firebase-config";
 import Header from "../components/header";
 import logo from '../img/logoB.png'
 import Background from "../components/background";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [registerName, setRegisterName] = useState("");
-  
     const [user, setUser] = useState({});
-  
+    const navigate = useNavigate();
+
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
+        if (currentUser) {
+          navigate('/painel');
+        }
       });
   
       return () => unsubscribe();

@@ -10,7 +10,7 @@ import { auth } from "../firebase-config";
 import Header from "../components/header";
 import logo from '../img/logoB.png'
 import Background from "../components/background";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [loginEmail, setLoginEmail] = useState("");
