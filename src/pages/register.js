@@ -110,10 +110,10 @@ function Register() {
         <p className="text-neutral-700 mt-5">Já tem uma conta? <Link to='/login' className="text-rose-600">Iniciar sessão</Link></p>
       </div>
 
-      <h4> User Logged In: </h4>
+      {/* <h4> User Logged In: </h4>
       {user?.email}
 
-      <button onClick={logout}> Sign Out </button>
+      <button onClick={logout}> Sign Out </button> */}
     </div>
   );
 }

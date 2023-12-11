@@ -92,10 +92,10 @@ function Login() {
         <p className="text-neutral-700 mt-5">Ainda não tem uma conta? <Link to='/register' className="text-rose-600">Criar conta</Link></p>
       </div>
 
-      <h4> User Logged In: </h4>
+      {/* <h4> User Logged In: </h4>
       {user?.email}
 
-      <button onClick={logout}> Sign Out </button>
+      <button onClick={logout}> Sign Out </button> */}
     </div>
   );
 }
