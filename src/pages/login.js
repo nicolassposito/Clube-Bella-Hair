@@ -10,20 +10,19 @@ import { auth } from "../firebase-config";
 import Header from "../components/header";
 import logo from '../img/logoB.png'
 import Background from "../components/background";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 function Login() {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
-
   const [user, setUser] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
-        setRedirect(true);
+        navigate('/painel');
       }
     });
 
@@ -52,10 +51,6 @@ function Login() {
       login();
     }
   };
-
-  if (redirect) {
-    return <Navigate to="/painel" />
-  }
   
   return (
     <div className="App overflow-x-hidden" style={{height: '100vh'}}>

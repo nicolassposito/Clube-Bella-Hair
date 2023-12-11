@@ -17,13 +17,11 @@ function Auth() {
         }
       });
     }, []);
-  
-    if (!user) {
-        return<>
-        <Navigate to="/login" />
-        </>
-    } else {
-        return null;
+
+    if (user) {
+      console.log("usuário autenticado");
+    } else{
+      return <Navigate to="/login" />;
     }
   }
 

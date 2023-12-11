@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 function Register() {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
-    const [registerName, setRegisterName] = useState(""); // New state for the name
+    const [registerName, setRegisterName] = useState("");
   
     const [user, setUser] = useState({});
   
@@ -37,7 +37,7 @@ function Register() {
             );
             const user = userCredential.user;
             await updateProfile(auth.currentUser, {
-              displayName: registerName, // Update the name in Firebase
+              displayName: registerName,
             });
             console.log(user);
           } catch (error) {
@@ -79,7 +79,7 @@ function Register() {
         <input className="p-2 rounded my-1"
           placeholder="Nome..."
           onChange={(event) => {
-            setRegisterName(event.target.value); // Update the name state
+            setRegisterName(event.target.value);
           }}
           onKeyPress={handleKeyPress}
         />
