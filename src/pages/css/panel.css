@@ -6,10 +6,65 @@
 .painel-item{
     opacity: 80%;
     font-weight: 500;
-    transition: 0.1gis;
+    transition: 0.1s;
+    display: inline-flex; 
+    position: relative; 
+    padding: 0.75rem; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 9999px; 
+    width: max-content; 
+    cursor: pointer; 
+    margin: 0.75rem auto;
 }
 
 .painel-item:hover{
     color: var(--primary);
     opacity: 90%;
+}
+
+.painel-item .onhover{
+    display: none;
+    color: #334155;
+}
+
+.painel-item.active .onhover{
+    color: var(--pink);
+}
+
+@media (min-width: 768px) { 
+    .painel-item{
+        display: flex; 
+        padding-top: 1rem;
+        padding-bottom: 1rem; 
+        margin: 0; 
+        margin-left: 0;
+        margin-right: 0; 
+        justify-content: flex-start; 
+        background-color: transparent !important; 
+    }
+}
+  
+
+@media(max-width: 768px){
+    .painel-item .onhover{
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 6px 12px;
+        font-size: 14px;
+        border-radius: 0.25em;
+        left: 140%;
+        width: max-content;
+    }
+    
+    .painel-item .onhover::after{
+        content: url(left.svg);
+        position: absolute;
+        left: -7px;
+    }
+    
+    .painel-item:hover .onhover{
+        display: block !important;
+    }
 }
