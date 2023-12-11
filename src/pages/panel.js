@@ -2,8 +2,8 @@ import React from 'react';
 import logo from '../img/logo.png';
 import logoB from '../img/logoB.png';
 import { MdSpaceDashboard, MdAddReaction, MdAutoAwesome, MdOutlineChangeCircle, MdContactSupport } from "react-icons/md";
-import tippy from 'tippy.js';
 import './css/panel.css';
+import Auth from '../authentication';
 
 function Panel() {
   return(
@@ -20,6 +20,7 @@ function Panel() {
           <li id="solicitartroca" className='painel-item bg-slate-100'><MdOutlineChangeCircle className='md:mr-3'/><span className='hidden md:block'>Solicitar troca</span><div className='onhover'>Solicitar troca</div></li>
           <li id="contato" className='painel-item bg-slate-100'><MdContactSupport className='md:mr-3'/><span className='hidden md:block'>Contato</span><div className='onhover'>Contato</div></li>
         </ul>
+        <Auth />
       </div>
     </div>
   );

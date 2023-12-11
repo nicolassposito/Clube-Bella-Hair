@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 import { getAnalytics } from "firebase/analytics";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
 const firebaseConfig = {
     apiKey: "AIzaSyB96c-Caf7ishRUCF4aRKdsavWGr1dqgVc",
@@ -14,5 +16,7 @@ const firebaseConfig = {
   
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+
+  firebase.initializeApp(firebaseConfig);
 
   export const auth = getAuth(app);
