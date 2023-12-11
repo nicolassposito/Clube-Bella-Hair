@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
   updateProfile,
 } from "firebase/auth";
+import "../Global.css";
 import "../App.css";
 import { auth } from "../firebase-config";
 import Header from "../components/header";
 import logo from '../img/logoB.png'
 import Background from "../components/background";
 import { Link } from "react-router-dom";
-import $ from "jquery"
 
 function Register() {
     const [registerEmail, setRegisterEmail] = useState("");
@@ -20,9 +20,13 @@ function Register() {
   
     const [user, setUser] = useState({});
   
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+      });
+  
+      return () => unsubscribe();
+      }, []);
   
     const register = async () => {
         try {
@@ -39,6 +43,12 @@ function Register() {
           } catch (error) {
             console.log(error.message);
           }
+    };
+
+    const handleKeyPress = (event) => {
+      if (event.key === 'Enter') {
+        register();
+      }
     };
   
     const logout = async () => {
@@ -71,24 +81,28 @@ function Register() {
           onChange={(event) => {
             setRegisterName(event.target.value); // Update the name state
           }}
+          onKeyPress={handleKeyPress}
         />
         <input className="p-2 rounded my-1"
           placeholder="Email..."
           onChange={(event) => {
             setRegisterEmail(event.target.value);
           }}
+          onKeyPress={handleKeyPress}
         />
         <input id="senha" className="p-2 rounded my-1"
           placeholder="Senha..."
+          onKeyPress={handleKeyPress}
         />
         <input id="senha2" type="password" className="p-2 rounded my-1"
           placeholder="Repetir senha..."
           onChange={(event) => {
             setRegisterPassword(event.target.value);
           }}
+          onKeyPress={handleKeyPress}
         />
 
-        <button type="submit" className="button w-28 py-2 rounded-full mt-3 mx-auto"> Pronto</button>
+        <button type="submit" className="button w-28 py-2 rounded-full mt-3 mx-auto">Pronto</button>
         </form>
         <p className="text-neutral-700 mt-5">Já tem uma conta? <Link to='/login' className="text-rose-600">Iniciar sessão</Link></p>
       </div>

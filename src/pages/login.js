@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
+import "../Global.css";
 import "../App.css";
 import { auth } from "../firebase-config";
 import Header from "../components/header";
@@ -18,9 +18,13 @@ function Login() {
 
   const [user, setUser] = useState({});
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+    }, []);
 
   const login = async () => {
       try {
@@ -29,14 +33,20 @@ function Login() {
         loginEmail,
         loginPassword
       );
-      console.log(user);
+      // console.log(user);
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
 
   const logout = async () => {
     await signOut(auth);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      login();
+    }
   };
   
   return (
@@ -63,12 +73,14 @@ function Login() {
           onChange={(event) => {
             setLoginEmail(event.target.value);
           }}
+          onKeyPress={handleKeyPress}
         />
         <input type="password" className="p-2 rounded my-1"
           placeholder="Senha..."
           onChange={(event) => {
             setLoginPassword(event.target.value);
           }}
+          onKeyPress={handleKeyPress}
         />
 
         <button className="button w-28 py-2 rounded-full mt-3 mx-auto" onClick={login}> Login</button>
@@ -77,7 +89,6 @@ function Login() {
 
       <h4> User Logged In: </h4>
       {user?.email}
-      <button onClick={console.log(user)}>clicar</button>
 
       <button onClick={logout}> Sign Out </button>
     </div>

@@ -1,11 +1,11 @@
 .button{
-  background-color: var(--secondary-dark);
+  background-color: var(--secondary-dark) !important;
   color: #fff;
   transition: ease 0.25s;
 }
 
 .button:hover{
-  background-color: var(--primary-dark);
+  background-color: var(--primary-dark) !important;
 }
 
 .button-transparent{
