@@ -4,6 +4,7 @@ import Login from './pages/login';
 import Register from './pages/register';
 import Panel from './pages/panel';
 import './Global.css';
+import Assinatura from './pages/dashboard/assinatura';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/painel' element={<Panel />} />
+          <Route path='/painel' element={<Assinatura />} />
           {/* <Route path='*' element={<404Page />} /> */}
         </Routes>
       </BrowserRouter>
