@@ -27,8 +27,7 @@ function Header() {
       }
     );
 
-    if((document.location.pathname) == '/' || ''){
-    } else {
+    if((document.location.pathname) != '/' || ''){
       $('.onlyHome').remove();
     }
   })
@@ -42,7 +41,7 @@ function Header() {
               <li><a href='/'><img src={logo} width={160} style={{minWidth: '140px'}} className='md:hidden'></img></a></li>
               <ul id='abrirmenu' className='onlyHome md:hidden ml-0.5 md:ml-2 relative flex items-center text-sm mr-1' style={{transition: '0.2s'}}><span>Menu</span><FiChevronDown className='hidden sm:block' size={18} /><FiChevronDown className='sm:hidden' size={14} />
               <div id='dropdown' style={{display: 'none'}} className='absolute bg-white drop-shadow-lg py-2 px-4 flex flex-col justify-around rounded'>
-                <div className='onlyHome' style={{display: 'none'}}>
+                <div>
                   <li><a href='#home'>Home</a></li>
                   <li><a href='#planos'>Planos</a></li>
                   <li><a href='#contato'>Contato</a></li>
