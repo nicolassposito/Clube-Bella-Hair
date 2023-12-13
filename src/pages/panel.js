@@ -5,6 +5,8 @@ import { MdSpaceDashboard, MdAddReaction, MdAutoAwesome, MdOutlineChangeCircle, 
 import './css/panel.css';
 import Auth from '../authentication';
 import firebase from 'firebase/compat/app';
+import { Link } from 'react-router-dom';
+import $ from "jquery"
 
 function Panel() {
   const logout = () => {
@@ -14,6 +16,18 @@ function Panel() {
       console.log(error);
     });
   };
+  
+  var pathname = window.location.pathname;
+  var appId = pathname.split('/')[2];
+  window.addEventListener("load", (event) => {
+    switch(appId) {
+      case 'assinatura':
+        $("#assinatura").addClass("active");
+        break;
+      default:
+        console.log("Caminho não reconhecido");
+    }
+  });
   return(
     <div>
       <div className='p-4 border-r inline-block h-screen relative'>
@@ -22,8 +36,8 @@ function Panel() {
           <img src={logoB} width={70} className='md:hidden pl-2.5'></img>
         </div>
         <ul className='py-4 text-xl md:text-lg text-center flex flex-col text-slate-700'>
-          <li id="painel" className='painel-item bg-slate-100 active'><MdSpaceDashboard className='md:mr-3'/><span className='hidden md:block'>Painel</span><div className='onhover'>Painel</div></li>
-          <li id="assinatura" className='painel-item bg-slate-100'><MdAutoAwesome className='md:mr-3'/><span className='hidden md:block'>Assinatura</span><div className='onhover'>Assinatura</div></li>
+         <li id="painel" className='painel-item bg-slate-100'><MdSpaceDashboard className='md:mr-3'/><span className='hidden md:block'>Painel</span><div className='onhover'>Painel</div></li>
+         <Link to={"/painel/assinatura"}><li id="assinatura" className='painel-item bg-slate-100'><MdAutoAwesome className='md:mr-3'/><span className='hidden md:block'>Assinatura</span><div className='onhover'>Assinatura</div></li></Link>
           <li id="preferencias" className='painel-item bg-slate-100'><MdAddReaction className='md:mr-3'/><span className='hidden md:block'>Preferências</span><div className='onhover'>Preferências</div></li>
           <li id="solicitartroca" className='painel-item bg-slate-100'><MdOutlineChangeCircle className='md:mr-3'/><span className='hidden md:block'>Solicitar troca</span><div className='onhover'>Solicitar troca</div></li>
           <li id="contato" className='painel-item bg-slate-100'><MdContactSupport className='md:mr-3'/><span className='hidden md:block'>Contato</span><div className='onhover'>Contato</div></li>

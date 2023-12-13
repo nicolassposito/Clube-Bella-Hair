@@ -1,7 +1,7 @@
 import React from 'react';
 import Panel from '../panel';
 
-function Assinatura() {
+function HomePainel() {
   return <>
   <div className='flex'>
     <div>
@@ -16,4 +16,4 @@ function Assinatura() {
   </>;
 }
 
-export default Assinatura;
+export default HomePainel;
