@@ -25,12 +25,12 @@ function Panel() {
         $("#assinatura").addClass("active");
         break;
       default:
-        console.log("Caminho não reconhecido");
+        $("#painel").addClass("active");
     }
   });
   return(
     <div>
-      <div className='p-4 border-r inline-block h-screen relative'>
+      <div className='pt-6 md:p-4 border-r inline-block h-screen relative'>
         <div className='border-b pb-6'>
           <img src={logo} width={220} className='hidden md:block'></img>
           <img src={logoB} width={70} className='md:hidden pl-2.5'></img>
@@ -42,7 +42,7 @@ function Panel() {
           <li id="solicitartroca" className='painel-item bg-slate-100'><MdOutlineChangeCircle className='md:mr-3'/><span className='hidden md:block'>Solicitar troca</span><div className='onhover'>Solicitar troca</div></li>
           <li id="contato" className='painel-item bg-slate-100'><MdContactSupport className='md:mr-3'/><span className='hidden md:block'>Contato</span><div className='onhover'>Contato</div></li>
         </ul>
-        <div onClick={logout} className='flex text-neutral-700 font-medium items-center absolute bottom-10 px-3 text-lg cursor-pointer hover:underline underline-offset-4 decoration-pink-600 decoration-2 hover:text-rose-500 transition'><MdOutlineLogout size={22} className='mr-1 pb-0.5'/> Sair</div>
+        <div onClick={logout} className='logout flex text-neutral-700 font-medium items-center absolute bottom-10 px-3 text-lg cursor-pointer hover:underline underline-offset-4 decoration-pink-600 decoration-2 hover:text-rose-500 transition'><MdOutlineLogout size={22} className='mr-1 pb-0.5'/> <span className='hidden md:block'>Sair</span></div>
         <Auth />
       </div>
     </div>

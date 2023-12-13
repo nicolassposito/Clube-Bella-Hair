@@ -67,4 +67,13 @@
     .painel-item:hover .onhover{
         display: block !important;
     }
+
+    .painel-item{
+        padding: 0.5rem; 
+    }
+
+    .logout{
+        transform: translate(-50%, 0);
+        left: 50%;
+    }
 }
