@@ -12,10 +12,9 @@ function Assinatura() {
     </div>
     <div className='relative w-full'>
     <div>
-        <div className='max-h-screen'>
-        <div id='planos' className='text-center p-0.5 md:p-10'>
-        <div>
-            <div>
+        <div className=''>
+        <div id='planos' className='text-center p-0.5 py-20 md:p-10 h-screen overflow-scroll'>
+            <div className='flex flex-col justify-around h-screen'>
                 <div className='relative text-left border p-3 rounded-lg shadow-md hover:shadow-xl transition w-full bg-neutral-50'>
                     <p className='uppercase mb-4 text-base'>Plano básico</p>
                     <p className='mb-3 text-4xy-1-3 font-semibold tracking-tight' style={{borderBottom: '1px solid rgba(0, 0, 0, 0.3)', color: 'var(--primary)'}}>R$: 86,90 <span className='text-base text-neutral-500 font-light'>/mês</span></p>
@@ -53,7 +52,6 @@ function Assinatura() {
                     </ul>
                 </div>
             </div>
-        </div>
         </div>
         </div>
     </div>

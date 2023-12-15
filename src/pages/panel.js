@@ -30,11 +30,11 @@ function Panel() {
   });
   return(
     <>
-    <div className='w-full bg-white fixed py-2 z-10'>
-      <div onClick={logout} className='flex mr-2 text-neutral-700 font-medium items-center justify-end px-3 text-lg cursor-pointer hover:underline underline-offset-4 decoration-pink-600 decoration-2 hover:text-rose-500 transition'><MdOutlineLogout size={22} className='mr-1 pb-0.5'/> <span className='hidden md:block'>Sair</span></div>
+    <div className='w-full bg-white absolute py-2 z-10 border-b'>
+      <div onClick={logout} className='flex mr-2 text-neutral-700 font-medium items-center justify-end px-3 text-lg cursor-pointer hover:underline underline-offset-4 decoration-pink-600 decoration-2 hover:text-rose-500 transition'><MdOutlineLogout size={22} className='mr-1 pb-0.5'/>Sair</div>
     </div>
     <div id='SpacingRight'></div>
-    <div className='left-0 top-0 z-10 bg-white h-screen overflow-hidden z-20 relative'>
+    <div className='top-0 z-10 bg-white h-screen overflow-hidden z-20 relative sticky'>
       <div id='leftPanel' className='pt-6 md:p-4 border-r relative h-full'>
         <div className='border-b pb-6'>
           <img src={logo} width={220} className='hidden md:block'></img>

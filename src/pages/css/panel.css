@@ -1,10 +1,9 @@
 .painel-item.active{
     color: var(--pink);
-    opacity: 100%;
 }
 
 .painel-item{
-    opacity: 80%;
+    opacity: 100%;
     font-weight: 500;
     transition: 0.1s;
     display: inline-flex; 
@@ -20,7 +19,6 @@
 
 .painel-item:hover{
     color: var(--primary);
-    opacity: 90%;
 }
 
 .painel-item .onhover{
@@ -53,13 +51,13 @@
 
 @media(max-width: 768px){
     .painel-item .onhover{
-        position: absolute;
+        position: fixed;
         background-color: #fff;
         border: 1px solid #ddd;
         padding: 6px 12px;
         font-size: 14px;
         border-radius: 0.25em;
-        left: 140%;
+        left: 65px;
         width: max-content;
     }
     
@@ -75,10 +73,5 @@
 
     .painel-item{
         padding: 0.5rem; 
-    }
-
-    .logout{
-        transform: translate(-50%, 0);
-        left: 50%;
     }
 }
