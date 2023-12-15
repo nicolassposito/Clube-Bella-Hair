@@ -1,3 +1,7 @@
+body{
+    background-color: #fff;
+}
+
 .painel-item.active{
     color: var(--pink);
 }

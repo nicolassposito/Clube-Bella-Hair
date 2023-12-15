@@ -11,9 +11,8 @@ function Assinatura() {
         <Panel />
     </div>
     <div className='relative w-full'>
-    <div>
-        <div className=''>
-        <div id='planos' className='text-center p-0.5 py-20 md:p-10 h-screen overflow-scroll'>
+    <div className=''>
+        <div id='planos' className='text-center p-0.5 md:p-10 h-screen pt-14 max-[400px]:pt-28 px-2'>
             <div className='flex flex-col justify-around h-screen'>
                 <div className='relative text-left border p-3 rounded-lg shadow-md hover:shadow-xl transition w-full bg-neutral-50'>
                     <p className='uppercase mb-4 text-base'>Plano básico</p>
@@ -52,7 +51,6 @@ function Assinatura() {
                     </ul>
                 </div>
             </div>
-        </div>
         </div>
     </div>
     </div>

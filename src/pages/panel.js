@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../img/logo.png';
 import logoB from '../img/logoB.png';
 import { MdSpaceDashboard, MdAddReaction, MdAutoAwesome, MdOutlineChangeCircle, MdContactSupport, MdOutlineLogout } from "react-icons/md";
@@ -28,13 +28,29 @@ function Panel() {
         $("#painel").addClass("active");
     }
   });
+
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    const leftPanel = document.getElementById('leftPanel');
+    const updateWidth = () => setWidth(leftPanel.offsetWidth);
+
+    // Atualiza a largura inicial
+    updateWidth();
+
+    // Adiciona o event listener para atualizar a largura quando a janela for redimensionada
+    window.addEventListener('resize', updateWidth);
+
+    // Limpa o event listener quando o componente for desmontado
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
   return(
     <>
-    <div className='w-full bg-white absolute py-2 z-10 border-b'>
+    <div className='w-full bg-white fixed py-2 z-10 border-b'>
       <div onClick={logout} className='flex mr-2 text-neutral-700 font-medium items-center justify-end px-3 text-lg cursor-pointer hover:underline underline-offset-4 decoration-pink-600 decoration-2 hover:text-rose-500 transition'><MdOutlineLogout size={22} className='mr-1 pb-0.5'/>Sair</div>
     </div>
-    <div id='SpacingRight'></div>
-    <div className='top-0 z-10 bg-white h-screen overflow-hidden z-20 relative sticky'>
+    <div id='SpacingRight' style={{ width: `${width}px` }}></div>
+    <div className='top-0 z-10 bg-white h-screen z-20 fixed overflow-hidden'>
       <div id='leftPanel' className='pt-6 md:p-4 border-r relative h-full'>
         <div className='border-b pb-6'>
           <img src={logo} width={220} className='hidden md:block'></img>
