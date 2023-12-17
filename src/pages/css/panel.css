@@ -37,7 +37,12 @@ body{
 .h-screen {
     height: 100vh; /* Fallback para navegadores que não suportam propriedades personalizadas */
     height: calc(var(--vh, 1vh) * 100);
-  }
+}
+
+.preferencias .active{
+    background-color: var(--pink);
+    color: #fff;
+}
 
 @media (min-width: 768px) { 
     .painel-item{
