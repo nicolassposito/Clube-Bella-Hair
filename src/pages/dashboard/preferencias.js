@@ -1,10 +1,12 @@
 import React from 'react';
 import Panel from '../panel';
 
-const Preferencias = () => {
+const Preferences = () => {
   return <>
-  
+  <div>
+    
+  </div>
   </>
 }
 
-export default Preferencias;
+export default Preferences;
