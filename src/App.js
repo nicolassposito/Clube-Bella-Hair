@@ -6,6 +6,7 @@ import DashboardHome from './pages/dashboard/home';
 import './Global.css';
 import Assinatura from './pages/dashboard/assinatura';
 import Preferences from './pages/dashboard/preferencias';
+import SolicitarTroca from './pages/dashboard/troca';
 import $ from "jquery"
 import logo from './img/logo.png';
 import gif from './img/loading heart.gif';
@@ -32,6 +33,7 @@ function App() {
           <Route path='/painel' element={<DashboardHome />} />
           <Route path='/painel/assinatura' element={<Assinatura />} />
           <Route path='/painel/preferencias' element={<Preferences />} />
+          <Route path='/painel/troca' element={<SolicitarTroca />} />
           {/* <Route path='*' element={<404Page />} /> */}
         </Routes>
       </BrowserRouter>
