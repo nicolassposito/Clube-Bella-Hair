@@ -12,18 +12,18 @@ import gif from './img/loading heart.gif';
 
 function App() {
   $(document).ready(function() {
-    // $('img').on('loadstart', function() {
-    //     $('#loadingScreen').show();
-    // });
+    $('img').on('loadstart', function() {
+        $('#loadingScreen').show();
+    });
 
-    // $('img').on('load', function() {
-    //     $('#loadingScreen').hide();
-    // });
+    $('img').on('load', function() {
+        $('#loadingScreen').hide();
+    });
 });
 
   return (
     <div className="App" id='app'>
-      <div id="loadingScreen" style={{"position":"fixed","zIndex": "1000","top":"0","left":"0","width":"100%","height":"100%","backgroundColor":"rgba(0,0,0,0.5)","display":"flex","justifyContent":"center","alignItems":"center"}}><div><img width={260} src={logo} alt="Carregando..."/><img src={gif} width={50}></img></div></div>
+      <div id="loadingScreen" className='fixed z-50 bg- w-full h-full' style={{backgroundColor: 'rgba(255, 255, 255, 0.9)'}}><div className='absolute top-1/2 left-1/2 flex items-center text-neutral-800 font-medium' style={{transform: 'translate(-50%, -50%)'}}><img src={gif} width={50}></img>Carregando...</div></div>
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
