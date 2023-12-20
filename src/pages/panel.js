@@ -28,8 +28,11 @@ function Panel() {
         case '/painel/preferencias':
             $( "#preferencias" ).addClass('active');
             break;
-        case '/painel/troca':
-            $( "#solicitartroca" ).addClass('active');
+            case '/painel/troca':
+              $( "#solicitartroca" ).addClass('active');
+              break;
+        case '/painel/contato':
+            $( "#contato" ).addClass('active');
             break;
         default:
             console.log("Você está na página: " + location.pathname);
@@ -68,7 +71,7 @@ function Panel() {
          <Link to={"/painel/assinatura"} className='painel-item-color'><li id="assinatura" className='painel-item bg-slate-100'><MdAutoAwesome className='md:mr-3'/><span className='hidden md:block'>Assinatura</span><div className='onhover'>Assinatura</div></li></Link>
          <Link to={"/painel/preferencias"} className='painel-item-color'><li id="preferencias" className='painel-item bg-slate-100'><MdAddReaction className='md:mr-3'/><span className='hidden md:block'>Preferências</span><div className='onhover'>Preferências</div></li></Link>
          <Link to={"/painel/troca"} className='painel-item-color'><li id="solicitartroca" className='painel-item bg-slate-100'><MdOutlineChangeCircle className='md:mr-3'/><span className='hidden md:block'>Solicitar troca</span><div className='onhover'>Solicitar troca</div></li></Link>
-          <li id="contato" className='painel-item bg-slate-100'><MdContactSupport className='md:mr-3'/><span className='hidden md:block'>Contato</span><div className='onhover'>Contato</div></li>
+         <Link to={"/painel/contato"} className='painel-item-color'><li id="contato" className='painel-item bg-slate-100'><MdContactSupport className='md:mr-3'/><span className='hidden md:block'>Contato</span><div className='onhover'>Contato</div></li></Link>
         </ul>
         <Auth />
       </div>

@@ -7,6 +7,7 @@ import './Global.css';
 import Assinatura from './pages/dashboard/assinatura';
 import Preferences from './pages/dashboard/preferencias';
 import SolicitarTroca from './pages/dashboard/troca';
+import Contact from './pages/dashboard/contato';
 import $ from "jquery"
 import logo from './img/logo.png';
 import gif from './img/loading heart.gif';
@@ -34,6 +35,7 @@ function App() {
           <Route path='/painel/assinatura' element={<Assinatura />} />
           <Route path='/painel/preferencias' element={<Preferences />} />
           <Route path='/painel/troca' element={<SolicitarTroca />} />
+          <Route path='/painel/contato' element={<Contact />} />
           {/* <Route path='*' element={<404Page />} /> */}
         </Routes>
       </BrowserRouter>
