@@ -86,7 +86,7 @@ function Register() {
           }}
           onKeyPress={handleKeyPress}
         />
-        <input className="p-2 rounded my-1"
+        <input type="email" className="p-2 rounded my-1"
           placeholder="Email..."
           onChange={(event) => {
             setRegisterEmail(event.target.value);
