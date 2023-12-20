@@ -39,8 +39,8 @@ function Preferences() {
                   <button className='bg-neutral-200 px-2 m-0.5 py-1 rounded'>70cm</button>
                 </div>
               </li>
-              <li>
-                <textarea rows="3" cols="28" wrap="hard" maxLength="80" className='p-2 mt-2 outline outline-2 outline-offset-2 outline-pink-500 rounded' placeholder='Detalhe (opcional)'></textarea>
+              <li className='px-2'>
+                <textarea rows="3" wrap="hard" maxLength="80" className='w-full p-2 mt-2 outline outline-2 outline-offset-2 outline-pink-500 rounded' placeholder='Detalhe (opcional)'></textarea>
               </li>
               <button className='button py-2 px-6 inline-block mt-2 rounded'>Salvar</button>
             </ul>
