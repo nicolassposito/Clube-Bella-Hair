@@ -40,7 +40,7 @@ function Preferences() {
                 </div>
               </li>
               <li className='px-2'>
-                <textarea rows="3" wrap="hard" maxLength="80" className='w-full p-2 mt-2 outline outline-2 outline-offset-2 outline-pink-500 rounded' placeholder='Detalhe (opcional)'></textarea>
+                <textarea rows="3" wrap="hard" maxLength="80" className='w-full p-2 mt-2 outline outline-2 outline-offset-2 outline-pink-500 rounded max-w-md' placeholder='Detalhe (opcional)'></textarea>
               </li>
               <button className='button py-2 px-6 inline-block mt-2 rounded'>Salvar</button>
             </ul>
