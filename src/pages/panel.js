@@ -35,7 +35,7 @@ function Panel() {
             $( "#contato" ).addClass('active');
             break;
         default:
-            console.log("Você está na página: " + location.pathname);
+            $( "#painel" ).addClass('active');
     }
 }, [location]);
 
@@ -67,7 +67,7 @@ function Panel() {
           <img src={logoB} width={70} className='md:hidden pl-2.5'></img>
         </div>
         <ul className='py-4 text-xl md:text-lg text-center flex flex-col text-slate-700'>
-         <li id="painel" className='painel-item bg-slate-100'><MdSpaceDashboard className='md:mr-3'/><span className='hidden md:block'>Painel</span><div className='onhover'>Painel</div></li>
+         <Link to={"/painel"} className='painel-item-color'><li id="painel" className='painel-item bg-slate-100'><MdSpaceDashboard className='md:mr-3'/><span className='hidden md:block'>Painel</span><div className='onhover'>Painel</div></li></Link>
          <Link to={"/painel/assinatura"} className='painel-item-color'><li id="assinatura" className='painel-item bg-slate-100'><MdAutoAwesome className='md:mr-3'/><span className='hidden md:block'>Assinatura</span><div className='onhover'>Assinatura</div></li></Link>
          <Link to={"/painel/preferencias"} className='painel-item-color'><li id="preferencias" className='painel-item bg-slate-100'><MdAddReaction className='md:mr-3'/><span className='hidden md:block'>Preferências</span><div className='onhover'>Preferências</div></li></Link>
          <Link to={"/painel/troca"} className='painel-item-color'><li id="solicitartroca" className='painel-item bg-slate-100'><MdOutlineChangeCircle className='md:mr-3'/><span className='hidden md:block'>Solicitar troca</span><div className='onhover'>Solicitar troca</div></li></Link>

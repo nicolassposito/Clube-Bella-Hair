@@ -8,8 +8,8 @@ function HomePainel() {
         <Panel />
     </div>
     <div className='relative w-full'>
-        <div className='absolute' style={{left: '50%', top: '50%', transform: 'translate(-50%, -50%)'}}>
-            
+        <div className='mt-20'>
+          <h1>Bem vindo(a)</h1>
         </div>
     </div>
   </div>
