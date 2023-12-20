@@ -28,6 +28,9 @@ function Panel() {
         case '/painel/preferencias':
             $( "#preferencias" ).addClass('active');
             break;
+        case '/painel/troca':
+            $( "#solicitartroca" ).addClass('active');
+            break;
         default:
             console.log("Você está na página: " + location.pathname);
     }
