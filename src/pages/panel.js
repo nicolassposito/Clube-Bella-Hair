@@ -5,14 +5,17 @@ import { MdSpaceDashboard, MdAddReaction, MdAutoAwesome, MdOutlineChangeCircle, 
 import './css/panel.css';
 import Auth from '../authentication';
 import firebase from 'firebase/compat/app';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import $ from "jquery"
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function Panel() {
+  const navigate = useNavigate();
   const logout = () => {
     firebase.auth().signOut().then(() => {
       console.log("User logged out");
+      navigate("/");
     }).catch((error) => {
       console.log(error);
     });
