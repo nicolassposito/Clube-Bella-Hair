@@ -6,6 +6,10 @@ body{
     color: var(--pink);
 }
 
+.painel-item-color:hover .painel-item{
+    color: var(--primary);
+}
+
 .painel-item{
     opacity: 100%;
     font-weight: 500;
