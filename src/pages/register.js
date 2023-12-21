@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -19,8 +19,11 @@ function Register() {
   const [registerName, setRegisterName] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-  const { user, setUser } = useContext(UserContext); // Use o UserContext
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
+  const registerPasswordRef = useRef();
+  const confirmPasswordRef = useRef();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -34,6 +37,10 @@ function Register() {
     }, []);
 
   const register = async () => {
+    if (registerPasswordRef.current.value !== confirmPasswordRef.current.value) {
+      alert('As senhas não coincidem!');
+      return;
+    }
     try {
         const userCredential = await createUserWithEmailAndPassword(
           auth,
@@ -96,15 +103,15 @@ function Register() {
           }}
           onKeyPress={handleKeyPress}
         />
-        <input id="senha" className="p-2 rounded my-1"
-          placeholder="Senha..."
-          onKeyPress={handleKeyPress}
-        />
-        <input id="senha2" type="password" className="p-2 rounded my-1"
+        <input id="senha" type="password" ref={registerPasswordRef} className="p-2 rounded my-1"
           placeholder="Repetir senha..."
           onChange={(event) => {
             setRegisterPassword(event.target.value);
           }}
+          onKeyPress={handleKeyPress}
+        />
+        <input id="senha2" ref={confirmPasswordRef} className="p-2 rounded my-1"
+          placeholder="Senha..."
           onKeyPress={handleKeyPress}
         />
 
