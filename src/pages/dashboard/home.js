@@ -4,24 +4,30 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import "firebase/auth";
 import { MdSpaceDashboard, MdAddReaction, MdAutoAwesome, MdOutlineChangeCircle, MdContactSupport, MdOutlineLogout, MdAdd } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import Auth from '../../authentication';
 
 function HomePainel() {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate(); // Get the navigate function
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      setUser(user);
+      if (user) {
+        setUser(user);
+      } else {
+        navigate('/login'); // Redirect to login page
+      }
     });
 
-    // Limpeza na desmontagem
     return () => unsubscribe();
-  }, []); // Array de dependências vazio para garantir que o efeito seja executado apenas na montagem
+  }, [navigate]); // Add navigate to the dependency array
 
   if (!user) {
-    return null; // ou seu componente de carregamento
+    return null;
   }
   return <>
+  <Auth />
   <div className='flex'>
     <div>
         <Panel />
