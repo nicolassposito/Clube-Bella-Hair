@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Panel from '../panel';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
@@ -7,7 +7,20 @@ import { MdSpaceDashboard, MdAddReaction, MdAutoAwesome, MdOutlineChangeCircle, 
 import { Link } from 'react-router-dom';
 
 function HomePainel() {
-  const user = firebase.auth().currentUser;
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      setUser(user);
+    });
+
+    // Limpeza na desmontagem
+    return () => unsubscribe();
+  }, []); // Array de dependências vazio para garantir que o efeito seja executado apenas na montagem
+
+  if (!user) {
+    return null; // ou seu componente de carregamento
+  }
   return <>
   <div className='flex'>
     <div>

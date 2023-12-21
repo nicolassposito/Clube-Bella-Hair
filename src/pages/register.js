@@ -20,18 +20,18 @@ function Register() {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const { user, setUser } = useContext(UserContext); // Use o UserContext
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //     setUser(currentUser);
-  //     if (currentUser) {
-  //       navigate('/painel');
-  //     }
-  //   });
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      if (currentUser) {
+        navigate('/painel');
+      }
+    });
 
-  //   return () => unsubscribe();
-  //   }, []);
+    return () => unsubscribe();
+    }, []);
 
   const register = async () => {
     try {
