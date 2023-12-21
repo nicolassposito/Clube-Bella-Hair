@@ -59,6 +59,7 @@ function Panel() {
   }, []);
   return(
     <>
+    <Auth></Auth>
     <div className='w-full bg-white fixed py-2 z-10 border-b'>
       <div onClick={logout} className='flex mr-2 text-neutral-700 font-medium items-center justify-end px-3 text-lg cursor-pointer hover:underline underline-offset-4 decoration-pink-600 decoration-2 hover:text-rose-500 transition'><MdOutlineLogout size={22} className='mr-1 pb-0.5'/>Sair</div>
     </div>
