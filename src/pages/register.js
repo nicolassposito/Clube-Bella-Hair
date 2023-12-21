@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
   updateProfile,
+  reload,
 } from "firebase/auth";
 import "../Global.css";
 import "../App.css";
@@ -12,51 +13,53 @@ import Header from "../components/header";
 import logo from '../img/logoB.png'
 import Background from "../components/background";
 import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from '../User';
 
 function Register() {
-    const [registerEmail, setRegisterEmail] = useState("");
-    const [registerPassword, setRegisterPassword] = useState("");
-    const [registerName, setRegisterName] = useState("");
-    const [user, setUser] = useState({});
-    const navigate = useNavigate();
+  const [registerName, setRegisterName] = useState("");
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const { user, setUser } = useContext(UserContext); // Use o UserContext
+  // const navigate = useNavigate();
 
-    useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-        if (currentUser) {
-          navigate('/painel');
-        }
-      });
-  
-      return () => unsubscribe();
-      }, []);
-  
-    const register = async () => {
-        try {
-            const userCredential = await createUserWithEmailAndPassword(
-              auth,
-              registerEmail,
-              registerPassword
-            );
-            const user = userCredential.user;
-            await updateProfile(auth.currentUser, {
-              displayName: registerName,
-            });
-            console.log(user);
-          } catch (error) {
-            console.log(error.message);
-          }
-    };
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+  //     setUser(currentUser);
+  //     if (currentUser) {
+  //       navigate('/painel');
+  //     }
+  //   });
 
-    const handleKeyPress = (event) => {
-      if (event.key === 'Enter') {
-        register();
+  //   return () => unsubscribe();
+  //   }, []);
+
+  const register = async () => {
+    try {
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          registerEmail,
+          registerPassword
+        );
+        await updateProfile(auth.currentUser, {
+          displayName: registerName,
+        });
+        await reload(auth.currentUser); // Recarregue o usuário
+        console.log('displayName after update:', auth.currentUser.displayName);
+        setUser({...user, displayName: registerName}); // Atualize o estado do usuário
+      } catch (error) {
+        console.log(error.message);
       }
-    };
-  
-    const logout = async () => {
-      await signOut(auth);
-    };
+};
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      register();
+    }
+  };
+
+  const logout = async () => {
+    await signOut(auth);
+  };
 
   return (
     <div className="App overflow-x-hidden">
@@ -78,7 +81,7 @@ function Register() {
         <img src={logo} width={100} className="mx-auto"></img>
         <h3 className="text-center text-2xl font-semibold text-white drop-shadow-xl py-2">Criar conta</h3>
         <p id="senha-erro" className="text-center text-sm mt-0.5 text-red-700 hidden">As senhas não são iguais!</p>
-        <form onSubmit={register} className="flex flex-col">
+        <div className="flex flex-col">
         <input className="p-2 rounded my-1"
           placeholder="Nome..."
           onChange={(event) => {
@@ -105,8 +108,8 @@ function Register() {
           onKeyPress={handleKeyPress}
         />
 
-        <button type="submit" className="button w-28 py-2 rounded-full mt-3 mx-auto">Pronto</button>
-        </form>
+        <button  onClick={register} className="button w-28 py-2 rounded-full mt-3 mx-auto">Pronto</button>
+        </div>
         <p className="text-neutral-700 mt-5">Já tem uma conta? <Link to='/login' className="text-rose-600">Iniciar sessão</Link></p>
       </div>
 

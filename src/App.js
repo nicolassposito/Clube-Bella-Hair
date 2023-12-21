@@ -11,8 +11,12 @@ import Contact from './pages/dashboard/contato';
 import $ from "jquery"
 import logo from './img/logo.png';
 import gif from './img/loading heart.gif';
+import { UserContext } from './User';
+import { useState } from 'react';
 
 function App() {
+  const [user, setUser] = useState(null);
+
   $(document).ready(function() {
     $('img').on('loadstart', function() {
         $('#loadingScreen').show();
@@ -24,6 +28,8 @@ function App() {
 });
 
   return (
+    <>
+    <UserContext.Provider value={{ user, setUser }}>
     <div className="App" id='app'>
       <div id="loadingScreen" className='fixed z-50 bg- w-full h-full' style={{backgroundColor: 'rgba(255, 255, 255, 0.9)'}}><div className='absolute top-1/2 left-1/2 flex items-center text-neutral-800 font-medium' style={{transform: 'translate(-50%, -50%)'}}><img src={gif} width={50}></img>Carregando...</div></div>
       <BrowserRouter>
@@ -40,6 +46,8 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    </UserContext.Provider>
+    </>
   );
 }
 export default App;
