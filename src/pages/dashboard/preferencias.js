@@ -20,7 +20,7 @@ function Preferences() {
         <div className='text-center mt-20 px-1.5 md:px-6 max-w-lg mx-auto'>
           <h1 className="font-medium text-2xl">Preferências de recebimento</h1>
           <p className='font-light text-md'>Aqui você pode controlar as preferências do seu perfil.</p>
-          <p className='font-light text-sm'>Sertifique-se de escolher as opções que mais te agradam 😁.</p>
+          <p className='font-light text-sm'>Certifique-se de escolher as opções que mais te agradam 😁.</p>
           <div>
             <ul className='text-center'>
             <li className='flex md:flex-row flex-col items-center my-2 justify-center'>
