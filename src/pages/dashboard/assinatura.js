@@ -1,61 +1,67 @@
-import React from 'react';
-import Panel from '../panel';
-import { IoMdCheckmark } from "react-icons/io";
-import { CgClose } from "react-icons/cg";
-import { HiMiniBellAlert } from "react-icons/hi2";
+import firebase from 'firebase/compat/app';
+import user from '..//..//authentication'
+import 'firebase/compat/auth';
+import "firebase/auth";
+import React, { useEffect, useState } from 'react';
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+initMercadoPago('TEST-3622835939055146-122211-c7a4eb4812e6618de05e059754833d0a-96790647');
 
-function Assinatura() {
-  return <>
-  <div className='flex'>
+
+const Assinatura = () => {
+  const createSubscription = async (product) => {
+    const response = await fetch('https://api.mercadopago.com/preapproval_plan', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer TEST-3622835939055146-122211-c7a4eb4812e6618de05e059754833d0a-96790647'
+      },
+      body: JSON.stringify({
+            "reason": "teste",
+            "auto_recurring": {
+              "frequency": 1,
+              "frequency_type": "months",
+              "transaction_amount": 1,
+              "currency_id": "BRL",
+              "repetitions": 12
+            },
+            "back_url": "https://www.yoursite.com",
+            "status": "active"
+      })
+    });
+
+    const data = await response.json();
+
+    // Aqui você pode redirecionar o usuário para `data.init_point` para iniciar o processo de assinatura
+  };
+
+  // Seus produtos
+  const products = [
+    { id: 1, name: 'Produto 1' },
+    { id: 2, name: 'Produto 2' },
+    // Adicione mais produtos aqui
+  ];
+
+  return (
     <div>
-        <Panel />
-    </div>
-    <div className='relative w-full'>
-    <div className=''>
-        <div id='planos' className='text-center my-12 p-0.5 md:p-10 px-2'>
-            <div className='flex flex-col justify-around'>
-                <div className='relative text-left border p-3 rounded-lg shadow-md hover:shadow-xl transition w-full bg-neutral-50'>
-                    <p className='uppercase mb-4 text-base'>Plano básico</p>
-                    <p className='mb-3 text-4xy-1-3 font-semibold tracking-tight' style={{borderBottom: '1px solid rgba(0, 0, 0, 0.3)', color: 'var(--primary)'}}>R$: 86,90 <span className='text-base text-neutral-500 font-light'>/mês</span></p>
-                    <ul>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Receba produtos de até <span className='ml-1 text-pink-500 font-semibold'>R$110</span></li>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Recebe produtos mensamente</li>
-                        <li className='flex items-center text-base'><CgClose className='mr-1.5 text-rose-500 drop-shadow' size={20}/>Acesso a suporte prioritário</li>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Acesso a promoções exclusivas</li>
-                        <li className='flex items-center text-base'><CgClose className='mr-1.5 text-rose-500 drop-shadow' size={20}/>Cupom exclusivo no site</li>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Qualidade do produto</li>
-                    </ul>
-                </div>
-                <div className='produto relative text-left border p-3 my-2 rounded-lg shadow-md hover:shadow-xl transition w-full bg-neutral-800 text-neutral-100'>
-                    <p className='uppercase mb-4 text-base flex justify-between items-center'>Plano VIP <div className='uppercase text-xs text-rose-400 flex items-center'><HiMiniBellAlert className='mr-1' size={16}/>Melhor custo benefício</div></p>
-                    <p className='mb-3 text-3xl py-1 font-semibold tracking-tight' style={{borderBottom: '1px solid rgba(0, 0, 0, 0.3)', color: 'var(--primary)'}}>R$: 110,90 <span className='text-base text-neutral-300 font-light'>/mês</span></p>
-                    <ul>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Receba produtos de até <span className='ml-1 text-pink-500 font-semibold'>R$140</span></li>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Recebe produtos mensamente</li>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Acesso a suporte prioritário</li>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Acesso a promoções exclusivas</li>
-                        <li className='flex items-center text-base'><CgClose className='mr-1.5 text-rose-500 drop-shadow' size={20}/>Cupom exclusivo no site</li>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Qualidade do produto</li>
-                    </ul>
-                </div>
-                <div className='produto relative text-left border p-3 rounded-lg shadow-md hover:shadow-xl transition w-full bg-neutral-50'>
-                    <p className='uppercase mb-4 text-base'>Plano BELLA</p>
-                    <p className='mb-3 text-3xl py-1 font-semibold tracking-tight' style={{borderBottom: '1px solid rgba(0, 0, 0, 0.3)', color: 'var(--primary)'}}>R$: 180,90 <span className='text-base text-neutral-600 font-light'>/mês</span></p>
-                    <ul>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Receba produtos de até <span className='ml-1 text-pink-500 font-semibold'>R$210</span></li>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Recebe produtos mensamente</li>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Acesso a suporte prioritário</li>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Acesso a promoções exclusivas</li>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Cupom exclusivo no site</li>
-                        <li className='flex items-center text-base'><IoMdCheckmark className='mr-1.5 text-emerald-500 drop-shadow' size={20}/>Qualidade do produto</li>
-                    </ul>
-                </div>
+      <h1>Assinatura</h1>
+
+      {user ? (
+        <div>
+          <h2>Bem-vindo, {user.displayName}!</h2>
+
+          <h3>Produtos</h3>
+          {products.map((product) => (
+            <div key={product.id}>
+              <h4>{product.name}</h4>
+              <button onClick={() => createSubscription(product)}>Assinar</button>
             </div>
+          ))}
         </div>
+      ) : (
+        <p>Por favor, faça login para ver os produtos.</p>
+      )}
     </div>
-    </div>
-  </div>
-  </>;
-}
+  );
+};
 
 export default Assinatura;
